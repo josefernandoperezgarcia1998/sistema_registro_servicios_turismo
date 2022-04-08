@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Service;
-use App\Models\User;
 use DB;
+use Carbon\Carbon;
+use App\Models\User;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
@@ -25,7 +26,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $services = Service::paginate(10);
+        $services = Service::all();
         return view('services.index-service', compact('services'));
     }
 
@@ -49,7 +50,15 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $service = $request->all();
-        
+
+        $date_start = Carbon::parse($service['date_start_service']);
+        $date_start_with_format = $date_start->isoFormat('LLLL');
+        $service['date_start_service'] = $date_start_with_format;
+
+        $date_end = Carbon::parse($service['date_end_service']);
+        $date_end_with_format = $date_end->isoFormat('LLLL');
+        $service['date_end_service'] = $date_end_with_format;
+    
         Service::create($service);
 
         return redirect()->route('services.index')->with('success', 'Servicio creado correctamente');
