@@ -35,10 +35,14 @@ Inicio servicios
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 @endif
+<div id="res" style="visibility: hidden;"></div>
 <div class="col-md-12">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <a href="{{ route('services.create') }}" class="btn btn-primary btn-sm">Nuevo servicio</a>
-        <a href="{{ route('services.excel') }}" class="btn btn-primary btn-sm float-right">Exportar todo</a>
+        <div>
+            <a href="{{ route('services.excel') }}" class="btn btn-primary btn-sm float-right" id="btn_export">Exportar todo</a>
+            <a href="" class="btn btn-primary btn-sm float-right" id="">Avanzado</a>
+        </div>
     </div>
     <div class="card">
         <div class="card-header card-header-primary">
@@ -114,13 +118,22 @@ Inicio servicios
         </div>
     </div>
 </div>
-
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script>
     document.querySelectorAll(".-b-expander").forEach(function (el) {
         el.addEventListener("click", () => {
             el.classList.toggle("-b-text-undexpanded");
         });
     });
-
 </script>
+
+<script>
+        const btn_export = document.getElementById("btn_export");
+
+        /* eventListener for show an alert message */
+        btn_export.addEventListener("click", () => {
+            alert('¡Excel descargado!');
+        })
+</script>
+
 @endsection

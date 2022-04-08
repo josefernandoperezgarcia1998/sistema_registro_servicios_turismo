@@ -34,11 +34,13 @@
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description">{{$service->description}}</textarea>
     </div>
     <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Fecha de inicio</label>
+        <label for="exampleFormControlTextarea1" class="form-label">Fecha de inicio: </label>
+        <small>{{$service->date_start_service}}</small>
         <input type="date" name="date_start_service" id="" value="{{ old('date_start_service', $service->date_start_service) }}">
     </div>
     <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Fecha de fin</label>
+        <label for="exampleFormControlTextarea1" class="form-label">Fecha de fin: </label>
+        <small>{{$service->date_end_service}}</small>
         <input type="date" name="date_end_service" id="" value="{{ old('date_end_service', $service->date_end_service) }}">
     </div>
     <button type="submit" class="btn btn-primary">Actualizar</button>

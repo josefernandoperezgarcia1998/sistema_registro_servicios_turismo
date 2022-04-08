@@ -28,11 +28,11 @@
     </div>
     <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Fecha de inicio</label>
-        <input type="date" name="date_start_service" id="" disabled value="{{ $service->date_start_service }}">
+        <input type="text" name="date_start_service" id="" disabled value="{{ $service->date_start_service }}">
     </div>
     <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Fecha de fin</label>
-        <input type="date" name="date_end_service" id="" disabled value="{{ $service->date_end_service }}">
+        <input type="text" name="date_end_service" id="" disabled value="{{ $service->date_end_service }}">
     </div>
     <a href="{{ route('services.index') }}" class="btn btn-secondary">Volver</a>
 </form>
