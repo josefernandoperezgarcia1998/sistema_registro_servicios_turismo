@@ -29,8 +29,17 @@ Inicio servicios
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 @endif
+@if (session('success'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>{{session('success')}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
 <div class="col-md-12">
-    <a href="{{ route('services.create') }}" class="btn btn-primary btn-sm">Nuevo servicio</a>
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <a href="{{ route('services.create') }}" class="btn btn-primary btn-sm">Nuevo servicio</a>
+        <a href="{{ route('services.excel') }}" class="btn btn-primary btn-sm float-right">Exportar todo</a>
+    </div>
     <div class="card">
         <div class="card-header card-header-primary">
             <h4 class="card-title ">Servicios</h4>

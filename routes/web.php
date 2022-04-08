@@ -27,6 +27,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 /* Route resource for the services */
 Route::resource('services', App\Http\Controllers\ServiceController::class)->names('services')->middleware('auth');
 
-/* Ruta  resources for the users*/
+/* Route  resources for the users*/
 Route::resource('users', App\Http\Controllers\UserController::class)->names('users')->middleware('auth');
 
+/* Route for export services */
+Route::get('service-list-excel', [App\Http\Controllers\ServiceController::class, 'exportExcel'])->name('services.excel');

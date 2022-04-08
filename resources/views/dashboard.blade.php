@@ -72,8 +72,8 @@
                                 </h5>
                                 <p class="card-text">Apartado con información a los servicios de dispositivos</p>
                                 <small><strong> Total de servicios:</strong> {{ $services_count }}</small>
-                                <br>
-                                <a href="{{ route('services.index') }}" class="card-link">Ver más...</a>
+                                <br><br>
+                                <a href="{{ route('services.index') }}" class="card-link btn btn-dark btn-sm">Ver más...</a>
                             </div>
                         </div>
                         <div class="card" style="width: 18rem;">
@@ -87,8 +87,9 @@
                                 </h5>
                                 <p class="card-text">Apartado con información del personal</p>
                                 <small><strong> Total de servicios:</strong> {{ $users_count }}</small>
-                                <br>
-                                <a href="{{ route('users.index') }}" class="card-link">Ver más...</a>
+                                <br><br>
+                                <a href="{{ route('users.index') }}" class="card-link btn btn-dark btn-sm pull-right">Ver más...</a>
+                        
                             </div>
                         </div>
                     </div>

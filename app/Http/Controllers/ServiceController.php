@@ -8,6 +8,8 @@ use DB;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ServicesExport;
 
 class ServiceController extends Controller
 {
@@ -75,8 +77,10 @@ class ServiceController extends Controller
     public function edit($id)
     {
         $service = Service::findOrFail($id);
+        $users = DB::table('users')->orderBy('name','asc')->get();
+        
 
-        return view('services.edit-service', compact('service'));
+        return view('services.edit-service', compact('service','users'));
     }
 
     /**
@@ -113,4 +117,14 @@ class ServiceController extends Controller
             return redirect()->route('services.index')->with('error',$e->getMessage());
         }
     }
+
+    /* Export Services to excel with Personal relationship  */
+    public function exportExcel()
+    {
+        /* dd(Service::with('personal:id,name')->get()); */
+        return Excel::download(new ServicesExport(), 'services-list.xlsx');
+    }
+
 }
+
+

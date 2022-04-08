@@ -8,7 +8,7 @@
 <form action="" method="post" enctype="multipart/form-data">
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Nombre del personal</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" name="personal_name" disabled value="{{ $service->personal_name }}">
+        <input type="text" class="form-control" id="exampleFormControlInput1" name="personal_name" disabled value="{{ $service->personal->name }}">
     </div>
     <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Persona atendida</label>

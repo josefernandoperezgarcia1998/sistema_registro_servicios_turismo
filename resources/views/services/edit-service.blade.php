@@ -9,8 +9,13 @@
     @csrf
     @method('PUT')
     <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Nombre del personal</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" name="personal_name" value="{{ old('personal_name', $service->personal_name) }}" required>
+        <label for="exampleFormControlTextarea1" class="form-label">Nombre</label>
+        <select class="form-select" aria-label="Default select example" name="personal_id" value="{{ $service->personal->name }}">
+            @foreach ($users as $user)
+           {{--  <option selected value="{{ old('personal_id', $user->id) }}">{{$user->name}}</option> --}}
+            <option value="{{$user->id}}">{{$user->name}}</option>
+            @endforeach
+        </select>
     </div>
     <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Persona atendida</label>
